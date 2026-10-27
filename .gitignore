@@ -1,0 +1,14 @@
+# Dependencies / runtime
+node_modules/
+.env
+*.log
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local caches
+*.tmp
+*.temp

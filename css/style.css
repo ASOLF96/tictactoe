@@ -1,0 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 1rem;
+}
+
+.app {
+    width: 100%;
+    max-width: 480px;
+    background: white;
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.header { margin-bottom: 1.25rem; }
+
+.title {
+    font-size: 2.4rem;
+    color: #333;
+    margin-bottom: 0.25rem;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-around;
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+}
+
+.score {
+    flex: 1;
+    background: #f7f7f7;
+    border-radius: 12px;
+    padding: 0.6rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.score.draws { background: #f0f0f0; }
+
+.score-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: #999; }
+.score-value { font-size: 1.6rem; font-weight: 700; color: #333; }
+
+.score .score-label { color: #667eea; }
+.score.draws .score-label { color: #999; }
+.score:last-child .score-label { color: #764ba2; }
+
+.status {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #667eea;
+    margin-bottom: 1.25rem;
+    min-height: 1.8rem;
+}
+
+.status .turn-x { color: #667eea; }
+.status .turn-o { color: #764ba2; }
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 0 auto 1.5rem;
+    max-width: 360px;
+}
+
+.cell {
+    aspect-ratio: 1;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 14px;
+    font-size: 2.8rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-family: inherit;
+}
+
+.cell:hover:not(:disabled) {
+    background: #e8e8e8;
+    transform: translateY(-2px);
+}
+
+.cell:active:not(:disabled) { transform: scale(0.96); }
+.cell:disabled { cursor: default; }
+
+.cell.x { color: #667eea; }
+.cell.o { color: #764ba2; }
+
+.cell.win {
+    background: #e8f5e9;
+    animation: pop 0.4s ease;
+}
+
+@keyframes pop {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+}
+
+.controls { margin-bottom: 1.25rem; }
+
+.mode-toggle {
+    display: inline-flex;
+    background: #f0f0f0;
+    border-radius: 12px;
+    padding: 4px;
+    gap: 4px;
+}
+
+.toggle-btn {
+    border: none;
+    background: transparent;
+    padding: 0.5rem 1.25rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: #888;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+.toggle-btn.active {
+    background: white;
+    color: #667eea;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.difficulty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.difficulty-label { font-size: 0.9rem; color: #888; font-weight: 600; }
+
+.diff-btn {
+    border: none;
+    background: #f0f0f0;
+    padding: 0.4rem 0.9rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: #666;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+.diff-btn.active {
+    background: #667eea;
+    color: white;
+}
+
+.actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.reset-btn {
+    flex: 1;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 0.85rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reset-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+}
+
+.reset-btn:active { transform: scale(0.97); }
+
+.secondary-btn {
+    background: #f0f0f0;
+    color: #666;
+    border: none;
+    padding: 0.85rem 1.25rem;
+    font-size: 0.9rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: inherit;
+    transition: background 0.2s ease;
+}
+
+.secondary-btn:hover { background: #e0e0e0; }
